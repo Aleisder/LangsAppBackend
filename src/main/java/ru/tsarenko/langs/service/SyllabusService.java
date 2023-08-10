@@ -13,12 +13,17 @@ public class SyllabusService {
 
     private final SyllabusDao syllabusDao;
 
-    public Syllabus getSyllabus(Language learningLanguage) {
-        return syllabusDao.getSyllabus(learningLanguage);
+    public Syllabus getSyllabus(String learningLanguage) {
+        Language lang = Language.convert(learningLanguage);
+        return syllabusDao.getSyllabus(lang);
     }
 
     public Lesson getLesson(String learningLanguage, String id) {
         return null;
+    }
+
+    public String test() {
+        return "Test";
     }
 
 }
