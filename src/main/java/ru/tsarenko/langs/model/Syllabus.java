@@ -2,13 +2,17 @@ package ru.tsarenko.langs.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Arrays;
+
 @AllArgsConstructor
 @Builder
+@Getter
 @Document
 public class Syllabus {
 
@@ -20,5 +24,15 @@ public class Syllabus {
     private String language;
 
     private Chapter[] chapters;
+
+    @Override
+    public String toString() {
+        return "Syllabus{" +
+                "id=" + id +
+                ", language='" + language + '\'' +
+                ", chapters=" + Arrays.toString(chapters) +
+                '}';
+    }
+
 
 }

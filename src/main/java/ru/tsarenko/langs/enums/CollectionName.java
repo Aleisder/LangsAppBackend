@@ -1,6 +1,6 @@
 package ru.tsarenko.langs.enums;
 
-public interface DatabaseName {
+public interface CollectionName {
     String SYLLABUS = "syllabus";
     String ENGLISH = "english";
     String GERMAN = "german";

@@ -4,23 +4,27 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.tsarenko.langs.model.Syllabus;
+import ru.tsarenko.langs.dto.SyllabusDTO;
+import ru.tsarenko.langs.model.Lesson;
 import ru.tsarenko.langs.service.SyllabusService;
 
 @RestController
 @AllArgsConstructor
 public class SyllabusController {
 
-    private final SyllabusService service;
+    private final SyllabusService syllabusService;
 
     @GetMapping("/syllabus")
-    public Syllabus getSyllabus(@RequestParam("lang") String lang) {
-        return service.getSyllabus(lang);
+    public SyllabusDTO getSyllabus(@RequestParam("lang") String lang) {
+        return syllabusService.getSyllabus(lang);
     }
 
-    @GetMapping("/test")
-    public String getTest() {
-        return service.test();
+    @GetMapping("/lesson")
+    public Lesson getLesson(
+            @RequestParam("lang") String lang,
+            @RequestParam("id") String id
+    ) {
+        return null;
     }
 
 }
