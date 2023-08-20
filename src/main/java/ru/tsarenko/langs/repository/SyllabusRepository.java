@@ -1,8 +1,7 @@
 package ru.tsarenko.langs.repository;
 
-import com.mongodb.client.MongoDatabase;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -23,18 +22,22 @@ public class SyllabusRepository implements SyllabusDao {
 
     @Override
     public Optional<Syllabus> getSyllabus(Language learningLanguage) {
-        var query = new Query(Criteria.where("language").is(learningLanguage.getValue()));
         var syllabus = mongoTemplate.findOne(
-                query,
+                Query.query(Criteria.where("language").is(learningLanguage.getValue())),
                 Syllabus.class,
                 SYLLABUS
         );
-        return Optional.ofNullable(syllabus) ;
+        return Optional.ofNullable(syllabus);
     }
 
     @Override
-    public Lesson getLesson(Language learningLanguage, String id) {
-        return null;
+    public Optional<Lesson> getLesson(Language learningLanguage, ObjectId id) {
+        var lesson = mongoTemplate.findOne(
+                Query.query(Criteria.where("_id").is(id)),
+                Lesson.class,
+                learningLanguage.getValue()
+        );
+        return Optional.ofNullable(lesson);
     }
 
 }

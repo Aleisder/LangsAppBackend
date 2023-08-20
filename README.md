@@ -7,6 +7,6 @@ ___
 # Стек
 - [Spring Boot](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
 - [MongoDB](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb)
-- PostgresSQL
+- [PostgresSQL](https://mvnrepository.com/artifact/org.postgresql/postgresql)
 - [Yandex Cloud](https://cloud.yandex.com/en-ru/)
 ___

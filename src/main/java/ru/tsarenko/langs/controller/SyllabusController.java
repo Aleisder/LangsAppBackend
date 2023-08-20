@@ -24,7 +24,7 @@ public class SyllabusController {
             @RequestParam("lang") String lang,
             @RequestParam("id") String id
     ) {
-        return null;
+        return syllabusService.getLesson(lang, id);
     }
 
 }
