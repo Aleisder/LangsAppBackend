@@ -5,7 +5,6 @@ import lombok.Getter;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
-import ru.tsarenko.langs.model.unit.Unit;
 
 @Document
 @Getter

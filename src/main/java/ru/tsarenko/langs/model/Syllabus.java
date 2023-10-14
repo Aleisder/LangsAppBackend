@@ -7,6 +7,8 @@ import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
+import ru.tsarenko.langs.dto.ChapterDTO;
+import ru.tsarenko.langs.dto.SyllabusDTO;
 
 import java.util.Arrays;
 
@@ -32,6 +34,16 @@ public class Syllabus {
                 ", language='" + language + '\'' +
                 ", chapters=" + Arrays.toString(chapters) +
                 '}';
+    }
+
+    public SyllabusDTO toDTO() {
+        return new SyllabusDTO(
+                language,
+                Arrays
+                        .stream(chapters)
+                        .map(Chapter::toDTO)
+                        .toArray(ChapterDTO[]::new)
+        );
     }
 
 

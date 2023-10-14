@@ -1,4 +1,4 @@
-package ru.tsarenko.langs.model.unit;
+package ru.tsarenko.langs.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
