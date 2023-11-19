@@ -1,1 +1,3 @@
 rootProject.name = 'langs'
+include ':langs-analytics'
+include ':langs-server'
